@@ -68,8 +68,10 @@ function addToCart(productId) {
 
 // Remove item from cart
 function removeFromCart(productId) {
-	sessionStorage.removeItem(productId);
-	renderCart();
+	const cart = getCart(); // Get the current cart
+  const updatedCart = cart.filter(item => item.id !== productId); // Remove the item with the given productId
+  saveCart(updatedCart); // Save the updated cart back to session storage
+  renderCart();
 }
 
 // Clear cart
