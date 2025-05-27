@@ -57,12 +57,14 @@ function addToCart(productId) {
 
   const cart = getCart();
 
-  // Only add if not already in cart (no duplicates)
+  // Check if the product is already in the cart
   const alreadyInCart = cart.some((item) => item.id === productId);
+  
   if (!alreadyInCart) {
-    cart.push(product);
-    saveCart(cart);
-    renderCart();
+    cart.push(product); // Add product to cart only if not already present
+    saveCart(cart); // Save updated cart to session storage
+    renderCart(); // Update the cart display
+  }
   }
 }
 
@@ -76,7 +78,7 @@ function removeFromCart(productId) {
 
 // Clear cart
 function clearCart() {
-	sessionStorage.clear();
+	sessionStorage.removeItem("cart"); // Clear specific cart item
   renderCart();
 }
 
