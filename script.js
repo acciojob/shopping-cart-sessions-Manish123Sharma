@@ -58,12 +58,12 @@ function addToCart(productId) {
   const cart = getCart();
 
   // Only add if not already in cart (no duplicates)
-  const alreadyInCart = cart.some((item) => item.id === productId);
-  if (!alreadyInCart) {
+  // const alreadyInCart = cart.some((item) => item.id === productId);
+  // if (!alreadyInCart) {
     cart.push(product);
     saveCart(cart);
     renderCart();
-  }
+  // }
 }
 
 // Remove item from cart
